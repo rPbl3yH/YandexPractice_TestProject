@@ -12,26 +12,6 @@ namespace App
         private List<IGameUpdateListener> _updateListeners = new();
         private List<IGameFixedUpdateListener> _fixedUpdatesListeners = new();
 
-        private void Update() {
-            if (_gameState == GameState.Playing) {
-                var deltaTime = Time.deltaTime;
-            
-                foreach (var updateListener in _updateListeners) {
-                    updateListener.OnUpdate(deltaTime);
-                }
-            }
-        }
-
-        private void LateUpdate() {
-            if(_gameState == GameState.Playing) {
-                var deltaTime = Time.deltaTime;
-
-                foreach(var updateListener in _fixedUpdatesListeners) {
-                    updateListener.OnFixedUpdate(deltaTime);
-                }
-            }
-        }
-
         public void AddListeners(IGameListener[] gameListeners) {
             foreach (var gameListener in gameListeners) {
                 AddListener(gameListener);
@@ -63,6 +43,26 @@ namespace App
             }
 
             SetState(GameState.Playing);
+        }
+        
+        private void Update() {
+            if (_gameState == GameState.Playing) {
+                var deltaTime = Time.deltaTime;
+            
+                foreach (var updateListener in _updateListeners) {
+                    updateListener.OnUpdate(deltaTime);
+                }
+            }
+        }
+
+        private void LateUpdate() {
+            if(_gameState == GameState.Playing) {
+                var deltaTime = Time.deltaTime;
+
+                foreach(var updateListener in _fixedUpdatesListeners) {
+                    updateListener.OnFixedUpdate(deltaTime);
+                }
+            }
         }
 
         public void FinishGame() {

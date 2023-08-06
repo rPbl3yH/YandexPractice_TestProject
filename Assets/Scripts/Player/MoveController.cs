@@ -1,26 +1,33 @@
-using System.Collections;
-using System.Collections.Generic;
+using App;
 using UnityEngine;
 
-public class MoveController : MonoBehaviour
+public class MoveController : MonoBehaviour, IGameStartListener, IGameFinishListener, IGameUpdateListener
 {
     [SerializeField] private Rigidbody2D _rigidbody;
     [SerializeField] private MouseInput _mouseInput;
     [SerializeField] private float _upGravityScale = 1f;
-    [SerializeField] private float _downGravityScale = 1f;
+    [SerializeField] private float _normalGravityScale = 1f;
     private bool _isMoveRequired;
     
-    private void Start()
+
+    public void OnGameStarted()
     {
         _mouseInput.OnMouseDown += OnMouseDown;
+        _rigidbody.simulated = true;
     }
 
+    public void OnGameFinished()
+    {
+        _mouseInput.OnMouseDown -= OnMouseDown;
+        _rigidbody.simulated = false;
+    }
+    
     private void OnMouseDown()
     {
         _isMoveRequired = true;
     }
 
-    private void Update()
+    public void OnUpdate(float deltaTime)
     {
         if (_isMoveRequired)
         {
@@ -29,7 +36,7 @@ public class MoveController : MonoBehaviour
         }
         else
         {
-            _rigidbody.gravityScale = _downGravityScale;
+            _rigidbody.gravityScale = _normalGravityScale;
         }
     }
 }

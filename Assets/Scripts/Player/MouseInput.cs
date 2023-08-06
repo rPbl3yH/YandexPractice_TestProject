@@ -1,11 +1,12 @@
 ﻿using System;
+using App;
 using UnityEngine;
 
-public class MouseInput : MonoBehaviour
+public class MouseInput : MonoBehaviour, IGameUpdateListener
 {
     public event Action OnMouseDown;
 
-    private void Update()
+    public void OnUpdate(float deltaTime)
     {
         if (Input.GetMouseButton(0))
         {

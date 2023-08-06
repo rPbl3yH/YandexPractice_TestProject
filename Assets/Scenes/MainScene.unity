@@ -170,7 +170,7 @@ MonoBehaviour:
   _rigidbody: {fileID: 235017074}
   _mouseInput: {fileID: 1227090899}
   _upGravityScale: 1
-  _downGravityScale: 1
+  _normalGravityScale: 1
 --- !u!1 &210978365
 GameObject:
   m_ObjectHideFlags: 0
@@ -276,7 +276,7 @@ Rigidbody2D:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 235017071}
   m_BodyType: 0
-  m_Simulated: 1
+  m_Simulated: 0
   m_UseFullKinematicContacts: 0
   m_UseAutoMass: 0
   m_Mass: 1
