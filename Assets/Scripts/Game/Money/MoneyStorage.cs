@@ -21,6 +21,7 @@ public class MoneyStorage : MonoBehaviour, IGameInitListener, IGameFinishListene
 
     public void OnGameFinished()
     {
-        OnMoneyChanged?.Invoke(0);
+        _money = 0;
+        OnMoneyChanged?.Invoke(_money);
     }
 }
