@@ -1,6 +1,4 @@
 using System;
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 public class CollideDetector : MonoBehaviour
@@ -9,7 +7,6 @@ public class CollideDetector : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D other)
     {
-        print("OnTriggerEnter");
         if (other.GetComponent<CollideComponent>())
         {
             OnCollide?.Invoke();
