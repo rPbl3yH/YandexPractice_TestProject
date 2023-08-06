@@ -4,15 +4,14 @@ using UnityEngine;
 
 public class MoveController : MonoBehaviour
 {
+    [SerializeField] private Rigidbody2D _rigidbody;
     [SerializeField] private MouseInput _mouseInput;
     [SerializeField] private float _upGravityScale = 1f;
     [SerializeField] private float _downGravityScale = 1f;
-    private Rigidbody2D _rigidbody;
     private bool _isMoveRequired;
     
     private void Start()
     {
-        _rigidbody = GetComponent<Rigidbody2D>();
         _mouseInput.OnMouseDown += OnMouseDown;
     }
 
