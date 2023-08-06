@@ -13,13 +13,13 @@ public class ObstaclesInitiliazer : MonoBehaviour, IGameStartListener, IGameFini
         _objectSpawner.OnSpawned += OnSpawned;
     }
     
-    private void OnSpawned(GameObject obj)
+    private void OnSpawned(GameObject gameObj)
     {
-        if (obj.TryGetComponent(out ObstacleMoveComponent moveComponent))
+        if (gameObj.TryGetComponent(out ObstacleMoveComponent moveComponent))
         {
-            var startPosition = new Vector2(_pointX, Random.Range(_lowBorderY, _highBorderY));
-            var secondPosition = new Vector2(_pointX, Random.Range(_lowBorderY, _highBorderY));
-            moveComponent.Construct(startPosition.y, secondPosition.y);
+            var startPosition = Random.Range(_lowBorderY, _highBorderY);
+            var secondPosition = Random.Range(_lowBorderY, _highBorderY);
+            moveComponent.Construct(startPosition, secondPosition, _pointX);
         }
     }
     
