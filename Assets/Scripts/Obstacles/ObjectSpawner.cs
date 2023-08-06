@@ -1,14 +1,18 @@
 ﻿using System;
+using System.Collections.Generic;
 using App;
 using UnityEngine;
 
-public class ObjectSpawner : MonoBehaviour, IGameUpdateListener
+public class ObjectSpawner : MonoBehaviour, IGameUpdateListener, IGameFinishListener
 {
     public event Action<GameObject> OnSpawned;
      
     [SerializeField] private GameObject _obstacle;
     [SerializeField] private int _countToSpawn = 2;
     [SerializeField] private float _delayToSpawn = 2f;
+
+    private readonly List<GameObject> _gameObjects = new();
+    
     private float _timer;
 
     public void OnUpdate(float deltaTime)
@@ -27,7 +31,18 @@ public class ObjectSpawner : MonoBehaviour, IGameUpdateListener
         for (int i = 0; i < _countToSpawn; i++)
         {
             var gameObj = Instantiate(_obstacle);
+            _gameObjects.Add(gameObj);
             OnSpawned?.Invoke(gameObj);
         }
+    }
+
+    public void OnGameFinished()
+    {
+        foreach (var gameObj in _gameObjects)
+        {
+            Destroy(gameObj);
+        }
+        
+        _gameObjects.Clear();
     }
 }

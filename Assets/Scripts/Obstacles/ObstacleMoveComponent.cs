@@ -23,7 +23,6 @@ public class ObstacleMoveComponent : MonoBehaviour
         }
 
         transform.position = new Vector3(pointX, _topPointY, 0f);
-        print($"top pointY {firstPointY}, bottom pointY {secondPointY}");        
     }
 
     private void Update()

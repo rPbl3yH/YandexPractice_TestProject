@@ -12,6 +12,8 @@ GameObject:
   - component: {fileID: 8107848178239791457}
   - component: {fileID: 8107848178239791456}
   - component: {fileID: -6670022647754199824}
+  - component: {fileID: 4237413321616907070}
+  - component: {fileID: 725231977689295007}
   m_Layer: 0
   m_Name: Obstcle
   m_TagString: Untagged
@@ -122,5 +124,32 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: f95f53288aaf45aca3c5a4b82c8f5c2f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _speed: 1.2
+--- !u!114 &4237413321616907070
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8107848178239791459}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9730643c375f60d449ddec1c69a3e46c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _speed: 2
+  _finishBorderX: 5
+--- !u!114 &725231977689295007
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8107848178239791459}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0d98faae6ba249969f061897058d5a56, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 

@@ -5064,7 +5064,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!4 &235017072
 Transform:
   m_ObjectHideFlags: 0
@@ -5673,7 +5673,7 @@ MonoBehaviour:
   _obstacle: {fileID: 8107848178239791459, guid: 6a8422f069ad6964ab3d19b2341d6da7,
     type: 3}
   _countToSpawn: 2
-  _delayToSpawn: 2
+  _delayToSpawn: 3
 --- !u!4 &984470452
 Transform:
   m_ObjectHideFlags: 0
