@@ -3,13 +3,10 @@ using UnityEngine;
 
 public class CollideDetector : MonoBehaviour
 {
-    public event Action OnCollide;
+    public event Action<GameObject> OnCollide;
 
     private void OnTriggerEnter2D(Collider2D other)
     {
-        if (other.GetComponent<CollideComponent>())
-        {
-            OnCollide?.Invoke();
-        }
+        OnCollide?.Invoke(other.gameObject);
     }
 }

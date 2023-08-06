@@ -95,7 +95,7 @@ namespace App
     
         private void SetState(GameState gameState) {
             _gameState = gameState;
-            print($"Current game state = {gameState}");
+            //print($"Current game state = {gameState}");
         }
     }
 }

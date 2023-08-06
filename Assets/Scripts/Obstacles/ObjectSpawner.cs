@@ -7,7 +7,7 @@ public class ObjectSpawner : MonoBehaviour, IGameUpdateListener, IGameFinishList
 {
     public event Action<GameObject> OnSpawned;
      
-    [SerializeField] private GameObject _obstacle;
+    [SerializeField] private GameObject _prefab;
     [SerializeField] private int _countToSpawn = 2;
     [SerializeField] private float _delayToSpawn = 2f;
 
@@ -30,7 +30,7 @@ public class ObjectSpawner : MonoBehaviour, IGameUpdateListener, IGameFinishList
     {
         for (int i = 0; i < _countToSpawn; i++)
         {
-            var gameObj = Instantiate(_obstacle);
+            var gameObj = Instantiate(_prefab);
             _gameObjects.Add(gameObj);
             OnSpawned?.Invoke(gameObj);
         }
