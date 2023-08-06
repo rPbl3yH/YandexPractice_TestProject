@@ -15,5 +15,6 @@ public class ParicleController : MonoBehaviour, IGameStartListener, IGameFinishL
     public void OnGameFinished()
     {
         _particleSystem.Stop();
+        _particleSystem.Clear();
     }
 }

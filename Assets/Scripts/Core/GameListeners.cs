@@ -8,6 +8,11 @@ namespace App
     {
     }
 
+    public interface IGameInitListener
+    {
+        void OnGameInit();
+    }
+
     public interface IGameStartListener : IGameListener
     {
         void OnGameStarted();

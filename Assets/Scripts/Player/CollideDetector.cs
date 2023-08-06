@@ -10,7 +10,7 @@ public class CollideDetector : MonoBehaviour
     private void OnTriggerEnter2D(Collider2D other)
     {
         print("OnTriggerEnter");
-        if (other.TryGetComponent(out CollideComponent collideComponent))
+        if (other.GetComponent<CollideComponent>())
         {
             OnCollide?.Invoke();
         }

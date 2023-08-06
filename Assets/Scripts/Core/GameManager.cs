@@ -1,3 +1,4 @@
+using System;
 using System.Collections.Generic;
 using UnityEngine;
 
@@ -11,6 +12,11 @@ namespace App
         private List<IGameListener> _listeners = new();
         private List<IGameUpdateListener> _updateListeners = new();
         private List<IGameFixedUpdateListener> _fixedUpdatesListeners = new();
+
+        private void Start()
+        {
+            InitGame();
+        }
 
         public void AddListeners(IGameListener[] gameListeners) {
             foreach (var gameListener in gameListeners) {
@@ -29,7 +35,15 @@ namespace App
                 _fixedUpdatesListeners.Add(gameLateUpdateListener);
             }
         }
-
+        
+        public void InitGame() {
+            foreach (var gameListener in _listeners) {
+                if (gameListener is IGameInitListener gameInitListener) {
+                    gameInitListener.OnGameInit();
+                }
+            }
+        }
+        
         [ContextMenu("Start game")]
         public void StartGame() {
             if(_gameState == GameState.Playing || _gameState == GameState.Paused) {
