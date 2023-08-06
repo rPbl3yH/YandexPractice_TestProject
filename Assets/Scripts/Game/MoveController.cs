@@ -13,6 +13,7 @@ public class MoveController : MonoBehaviour, IGameStartListener, IGameFinishList
     public void OnGameStarted()
     {
         _mouseInput.OnMouse += OnMouse;
+        _rigidbody.velocity = Vector2.zero;
         _rigidbody.simulated = true;
     }
 
