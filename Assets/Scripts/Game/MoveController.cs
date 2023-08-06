@@ -12,17 +12,17 @@ public class MoveController : MonoBehaviour, IGameStartListener, IGameFinishList
 
     public void OnGameStarted()
     {
-        _mouseInput.OnMouseDown += OnMouseDown;
+        _mouseInput.OnMouse += OnMouse;
         _rigidbody.simulated = true;
     }
 
     public void OnGameFinished()
     {
-        _mouseInput.OnMouseDown -= OnMouseDown;
+        _mouseInput.OnMouse -= OnMouse;
         _rigidbody.simulated = false;
     }
     
-    private void OnMouseDown()
+    private void OnMouse()
     {
         _isMoveRequired = true;
     }

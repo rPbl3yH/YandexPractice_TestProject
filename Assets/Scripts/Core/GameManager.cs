@@ -39,6 +39,7 @@ namespace App
         public void InitGame() {
             foreach (var gameListener in _listeners) {
                 if (gameListener is IGameInitListener gameInitListener) {
+                    print($"{gameInitListener.GetType().Name}");
                     gameInitListener.OnGameInit();
                 }
             }
